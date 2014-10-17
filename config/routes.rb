@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+
+  namespace :module1 do     
+    resources :module1
+  end 
+
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -19,9 +24,26 @@ Rails.application.routes.draw do
   match '/module1_ex', to: 'static_pages#module1_ex', via: 'get'
 
   match '/module2', to: 'static_pages#module2', via: 'get'
+  match '/module2_2', to: 'static_pages#module2_2', via: 'get'
+  match '/module2_fb', to: 'static_pages#module2_fb', via: 'get'
+  match '/module2_ex', to: 'static_pages#module2_ex', via: 'get'
+
   match '/module3', to: 'static_pages#module3', via: 'get'
+  match '/module3_2', to: 'static_pages#module3_2', via: 'get'
+  match '/module3_fb', to: 'static_pages#module3_fb', via: 'get'
+  match '/module3_ex', to: 'static_pages#module3_ex', via: 'get'
+
   match '/module4', to: 'static_pages#module4', via: 'get'
+  match '/module4_2', to: 'static_pages#module4_2', via: 'get'
+  match '/module4_fb', to: 'static_pages#module4_fb', via: 'get'
+  match '/module4_ex', to: 'static_pages#module4_ex', via: 'get'
+
   match '/module5', to: 'static_pages#module5', via: 'get'
+  match '/module5_2', to: 'static_pages#module5_2', via: 'get'
+  match '/module5_fb', to: 'static_pages#module5_fb', via: 'get'
+  match '/module5_ex', to: 'static_pages#module5_ex', via: 'get'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
