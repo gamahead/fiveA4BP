@@ -1,0 +1,27 @@
+<% provide(:title, "Module #{params[:id]}") %>
+<ul class="nav nav-pills nav-default">
+  <li><h1><%="Module "+params[:id].to_s%></h1></li>
+  <li><%= link_to(@aType+' 1',"/mods/#{params[:id]}/one")%></li>
+  <li class="active"><%= link_to(@aType+' 2',"/mods/#{params[:id]}/two")%></li>
+  <li><%= link_to("Post Skit Feedback", "/mods/#{params[:id]}/feedback") %></li>
+  <li><%= link_to("Explanation", "/mods/#{params[:id]}/explain") %></li>
+</ul>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><h4>Dialog</h4></div>
+        <%= render inline: @dialogueHTML %>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="well well-sm">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src=<%= @youtubeRes %> AllowFullScreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

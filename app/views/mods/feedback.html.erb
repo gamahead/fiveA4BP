@@ -1,0 +1,19 @@
+<% provide(:title, "Module #{params[:id]}") %>
+<ul class="nav nav-pills nav-default">
+  <li><h1><%="Module "+params[:id].to_s%></h1></li>
+  <li><%= link_to(@aType+' 1',"/mods/#{params[:id]}/one")%></li>
+  <li><%= link_to(@aType+' 2',"/mods/#{params[:id]}/two")%></li>
+  <li class="active"><%= link_to("Post Skit Feedback", "/mods/#{params[:id]}/feedback") %></li>
+  <li><%= link_to("Explanation", "/mods/#{params[:id]}/explain") %></li>
+</ul>
+<form role="form">
+	<div class="form-group">
+		<div class="panel panel-info">
+			<div class="panel-body">
+				<h3><%= "Which video better illustrates \"#{@aType}\" Briefly write down your answer."%></h3>
+			</div>
+		</div>
+		<textarea class="form-control"rows="5"></textarea>
+	</div>
+	<button type="submit" class="btn btn-default">Submit</button>
+</form>

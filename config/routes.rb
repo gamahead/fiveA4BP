@@ -1,4 +1,15 @@
+# -*- encoding : utf-8 -*-
+# !/bin/env ruby
+# encoding: utf-8
+
 Rails.application.routes.draw do
+  get 'mods/one'
+
+  get 'mods/two'
+
+  get 'mods/feedback'
+
+  get 'mods/explain'
 
   get 'users/new'
   resources :users
@@ -17,7 +28,12 @@ Rails.application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/test',    to: 'static_pages#test',    via: 'get'
-  
+
+  match "/mods/:id/one", to: 'mods#one', via: 'get'
+  match "/mods/:id/two", to: 'mods#two', via: 'get'
+  match "/mods/:id/feedback", to: 'mods#feedback', via: 'get'
+  match "/mods/:id/explain", to: 'mods#explain', via: 'get'
+
   match '/module1', to: 'static_pages#module1', via: 'get'
   match '/module1_2', to: 'static_pages#module1_2', via: 'get'
   match '/module1_fb', to: 'static_pages#module1_fb', via: 'get'

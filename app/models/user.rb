@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
 	has_many :microposts, dependent: :destroy
 	before_save { self.email = email.downcase }

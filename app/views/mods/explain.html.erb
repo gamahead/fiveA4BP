@@ -1,0 +1,9 @@
+<% provide(:title, "Module #{params[:id]}") %>
+<ul class="nav nav-pills nav-default">
+  <li><h1><%="Module "+params[:id].to_s%></h1></li>
+  <li><%= link_to(@aType+' 1',"/mods/#{params[:id]}/one")%></li>
+  <li><%= link_to(@aType+' 2',"/mods/#{params[:id]}/two")%></li>
+  <li><%= link_to("Post Skit Feedback", "/mods/#{params[:id]}/feedback") %></li>
+  <li class="active"><%= link_to("Explanation", "/mods/#{params[:id]}/explain") %></li>
+</ul>
+<%= render 'shared/explanation' %>

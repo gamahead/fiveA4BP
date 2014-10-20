@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 #!/bin/env ruby
 # encoding: utf-8
 
@@ -34,9 +35,5 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
-  end
-
-  def module2_test
-    render 'static_pages/modules/module2_test'
   end
 end
