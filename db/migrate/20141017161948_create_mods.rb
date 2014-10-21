@@ -10,7 +10,7 @@ class CreateMods < ActiveRecord::Migration
       t.text :dialogueOne
       t.text :dialogTwo
 
-      t.timestamps, null: false
+      t.timestamps, :null => false
     end
   end
 end
