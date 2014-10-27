@@ -1,19 +1,25 @@
 <% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="col-md-12 container">
+  <div class="col-md-4"></div> <!-- For centering the sign-in form -->
+  <div class="col-md-4">
+
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <h2 class="form-signin-heading">Sign In</h2>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.text_field :email, class: "form-control", autofocus: true, placeholder: "Email Address", required: "autofocus" %>
+      
+      <%= f.password_field :password, class: "form-control", placeholder: "Password", required: "autofocus" %>
 
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+
+      <%= f.submit "Sign in", class: "btn btn-lg btn-default btn-block"%>
+
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
     <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
+  <div class="col-md-4"></div> <!-- For centering the sign-in form -->
 </div>

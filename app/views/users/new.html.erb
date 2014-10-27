@@ -1,25 +1,40 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+  <div class="col-md-4"></div> <!-- For centering the sign-in form -->
+  <div class="col-md-4">
+    <%= form_for(@user, class: "form-horizontal") do |f| %>
+    <div class="form-group">
+      <h2 class="form-signin-heading">Sign In</h2>
+    </div>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :name, class: 'control-label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
 
-      <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :email , class: 'control-label' %>
+      <%= f.text_field :email , class: 'form-control' %>
+    </div>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.label :password , class: 'control-label' %>
+      <%= f.password_field :password , class: 'form-control' %>
+    </div>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirmation" , class: 'control-label' %>
+      <%= f.password_field :password_confirmation , class: 'form-control' %>
+    </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
+  <div class="col-md-4"></div> <!-- For centering the sign-in form -->
 </div>
+
+
+<!-- <a class="navbar-brand" href="http://www.urmc.rochester.edu/">
+          <%= link_to image_tag("5As logo.jpg", alt: "URMC", width: '150'), 'University of Rochester Medical Center' %>
+        </a> -->

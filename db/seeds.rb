@@ -17,6 +17,19 @@
 # t.text     "dialogueOne"
 # t.text     "dialogTwo"
 
+require 'yaml'
+
+puts '--Seeding Database--'
+
+User.create(
+
+	name: 'Joshua Rose',
+	email: 'gamahead@gmail.com',
+	password: 'jo3huajj',
+	password_confirmation: 'jo3huajj',
+	answers: ['a','b','c','d','e'].to_yaml
+	)
+
 Mod.create(
 
 aType: "Ask/Assess", 

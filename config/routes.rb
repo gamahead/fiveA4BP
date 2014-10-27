@@ -17,10 +17,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
 
-  namespace :module1 do     
-    resources :module1
-  end 
-
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -29,6 +25,9 @@ Rails.application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/test',    to: 'static_pages#test',    via: 'get'
+  match '/mods/feedback', to: 'mods#answer', via: 'post'
+  # match '/mods/feedback',   to:  'users#answer',  via: 'post'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -56,6 +55,10 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
+  # resources :mods do
+  #   resources :feedback
+  # end
 
   # Example resource route with sub-resources:
   #   resources :products do

@@ -1,19 +1,33 @@
-<% provide(:title, "Module #{params[:id]}") %>
-<ul class="nav nav-pills nav-default">
-  <li><h1><%="Module "+params[:id].to_s%></h1></li>
-  <li><%= link_to(@aType+' 1', mods_one_url(:id => params[:id].to_i))%></li>
-  <li><%= link_to(@aType+' 2',mods_two_url(:id => params[:id].to_i))%></li>
-  <li class="active"><%= link_to("Post Skit Feedback", mods_feedback_url(:id => params[:id].to_i)) %></li>
-  <li><%= link_to("Explanation", mods_explain_url(:id => params[:id].to_i)) %></li>
-</ul>
-<form role="form">
+<div class="row">
+	<% provide(:title, "Module #{params[:id]}") %>
+	<ul class="nav nav-pills nav-default">
+		<li><h1><%="Module "+params[:id].to_s%></h1></li>
+		<li><%= link_to(@aType+' 1', mods_one_url(:id => params[:id].to_i))%></li>
+		<li><%= link_to(@aType+' 2',mods_two_url(:id => params[:id].to_i))%></li>
+		<li class="active"><%= link_to("Post Skit Feedback", mods_feedback_url(:id => params[:id].to_i)) %></li>
+		<li><%= link_to("Explanation", mods_explain_url(:id => params[:id].to_i)) %></li>
+	</ul>
+
+	<%= form_for(:feedback, url: mods_feedback_url(:id => params[:id])) do |f| %>
+	<h3><%= "Which video better illustrates \"#{@aType}\"? Briefly write down your answer."%></h3>
 	<div class="form-group">
-		<div class="panel panel-info">
-			<div class="panel-body">
-				<h3><%= "Which video better illustrates \"#{@aType}\" Briefly write down your answer."%></h3>
-			</div>
-		</div>
-		<textarea class="form-control"rows="5"></textarea>
+		<%= f.label :answer , class: 'control-label' %>
+		<%= f.text_field :answer , class: 'form-control input-md' %>
 	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-</form>
+	<%= f.submit "Submit", class: "btn btn-large btn-default" %>
+	<% end %>
+</div>
+
+<!-- 	<%= form_for(:feedback, url: mods_feedback_url(:id => params[:id])) do |f| %>
+		<h3><%= "Which video better illustrates \"#{@aType}\"? Briefly write down your answer."%></h3>
+		<div class="form-group">
+			<%= f.label :answer , class: 'control-label' %>
+			<%= f.text_field :answer , class: 'form-control input-md' %>
+		</div>
+		<%= f.submit "Submit", class: "btn btn-large btn-default" %>
+	<% end %>
+
+	<%= text_area_tag(:message, "Hi, nice site", size: "24x6") %>
+</div>
+-->
+
