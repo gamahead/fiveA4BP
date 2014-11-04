@@ -18,11 +18,12 @@ class UsersController < ApplicationController
   end
 
   def create
+    # TODO: ADD CLINIC
     @user = User.new(user_params)
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # User.find(params[:id]).destroy
+    User.find_by(current_user.email).destroy
     flash[:success] = "User deleted."
     redirect_to users_url
   end

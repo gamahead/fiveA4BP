@@ -1,18 +1,111 @@
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h1 class="modal-title" id="myModalLabel">Final Feedback</h1>
+      </div>
+      <div class="modal-body">
+        <div class="h4">Answer the following questions regarding the videos that you watched, then press submit.</div></br>
+
+        <%= form_for(@user, class: "form-horizontal") do |f| %>
+
+        <div class="form-group">
+          <big><%= f.label(:primary_ask, '1. The Primary Ask Discussed is: ') %></big></br>
+          <%= radio_button_tag(:primary_ask, "1") %>
+          <%= label_tag(:primary_ask_1, "Does the patient know their blood pressure goal?") %></br>
+          <%= radio_button_tag(:primary_ask, "2") %>
+          <%= label_tag(:primary_ask_2, "Did the patient take their medications today?") %></br>
+          <%= radio_button_tag(:primary_ask, "3") %>
+          <%= label_tag(:primary_ask_3, "Does the patient know the side effects of their medication?") %>
+        </div>
+
+        <div class="form-group">
+          <big><%= f.label(:primary_advice, '2. The Primary Advice Discussed is: ') %></big></br>
+          <%= radio_button_tag(:primary_advice, "1") %>
+          <%= label_tag(:primary_advice_1, "Telling them not worry about side effects.") %></br>
+          <%= radio_button_tag(:primary_advice, "2") %>
+          <%= label_tag(:primary_advice_2, "Explaining their blood pressure goal.") %></br>
+          <%= radio_button_tag(:primary_advice, "3") %>
+          <%= label_tag(:primary_advice_3, "Telling them to take their medications every day.") %>
+        </div>
+
+        <div class="form-group">
+          <big><%= f.label(:primary_agree, '3. The Primary Agree Discussed is: ') %></big></br>
+          <%= radio_button_tag(:primary_agree, "1") %>
+          <%= label_tag(:primary_agree_1, "Cause of high blood pressure") %></br>
+          <%= radio_button_tag(:primary_agree, "2") %>
+          <%= label_tag(:primary_agree_2, "Effects of high blood pressure") %></br>
+          <%= radio_button_tag(:primary_agree, "3") %>
+          <%= label_tag(:primary_agree_3, "Management of the blood pressure.") %>
+        </div>
+
+        <div class="form-group">
+          <big><%= f.label(:primary_assist, '4. The Primary Assist Discussed is: ') %></big></br>
+          <%= radio_button_tag(:primary_assist, "1") %>
+          <%= label_tag(:primary_assist_1, "Identifying and addressing barriers to improving control") %></br>
+          <%= radio_button_tag(:primary_assist, "2") %>
+          <%= label_tag(:primary_assist_2, "Quitting smoking") %></br>
+          <%= radio_button_tag(:primary_assist, "3") %>
+          <%= label_tag(:primary_assist_3, "Telling patients what they must do") %>
+        </div>
+
+        <div class="form-group">
+          <big><%= f.label(:primary_arrange, '5. The Primary Arrange Discussed is: ') %></big></br>
+          <%= radio_button_tag(:primary_arrange, "1") %>
+          <%= label_tag(:primary_arrange_1, "Arranging for a visit within one month") %></br>
+          <%= radio_button_tag(:primary_arrange, "2") %>
+          <%= label_tag(:primary_arrange_2, "Arranging a meal plan") %></br>
+          <%= radio_button_tag(:primary_arrange, "3") %>
+          <%= label_tag(:primary_arrange_3, "Arranging for a referral to a cardiologist") %>
+        </div>
+      </br>
+
+
+    </div>
+    <div class="modal-footer">
+    <%= f.submit "Submit", class: "btn btn-large btn-default" %>
+      <% end %>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="page-header">
-<div class="col-lg-1"></div>
+  <div class="col-lg-1"></div>
   <h1>The 5A's For Blood Pressure <medium>|</medium> <small><%=current_user.name %></small></h1>
 </div>
 <div class="row">
   <div class="col-md-1"></div>
   <% for i in 0..4 %>
-  <div class="col-sm-6 col-md-2">
-      <div class="caption">
-        <%= link_to simple_format('Module ' + (i+1).to_s + "\n" + '<small>'+Mod.find(i+1).aType+((completed?(i)) ? ' (Complete)' : ' (Incomplete)').to_s+'</small>'), mods_one_path(:id => i+1), class: 'h3 col-lg-12 list-group-item list-group-item-'+((completed?(i)) ? 'success' : 'danger').to_s %>
-        <div class="well well-sm">
-          <h4>Feedback</h4>
-          <p><%= answer_for(i) %></p>
-        </div>
+  <div class="col-sm-6 col-md-2 col-lg-2">
+    <div class="caption">
+      <%= link_to simple_format('Module ' + (i+1).to_s + "\n" + '<small>'+Mod.find(i+1).aType+((completed?(i)) ? ': Complete' : ': Incomplete').to_s+'</small>'), mods_one_path(:id => i+1), class: 'h3 col-lg-12 list-group-item list-group-item-'+((completed?(i)) ? 'success' : 'danger').to_s %>
+      <div class="well well-sm">
+        <h4>Feedback</h4>
+        <p><%= answer_for(i) %></p>
       </div>
+    </div>
   </div>
   <% end %>
 </div>
+
+</br></br></br>
+
+<% if finished_mods? %>
+
+<button type="button" class="btn btn-success btn-lg col-lg-12" data-toggle="modal" data-target="#myModal">
+  Final Feedback
+</button>
+
+<% else %> 
+
+
+<button onclick="return false" type="button" class="btn btn-default btn-lg col-lg-12 active" autocomplete='off' role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Locked" data-content="Final Feedback is not available until all 5 modules have been completed">Final Feedback</button>
+
+<% end %>

@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require dropdown
+//= require modal
+//= require transition
+//= require tooltip
+//= require popover
+//= require button

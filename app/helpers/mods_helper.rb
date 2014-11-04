@@ -7,5 +7,14 @@ module ModsHelper
   def answer_for(index)
     YAML.load(current_user.answers)[index]
   end
+
+  def finished_mods?
+  	for i in 0..4
+  		if !completed?(i)
+  			return false
+  		end
+  	end
+  	return true
+  end
 end
 
