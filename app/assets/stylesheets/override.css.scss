@@ -19,7 +19,7 @@ body {
   padding-top: 60px;
 }
 
-
+// Everything set to 0 so the UofR brand can fit
 .navbar-brand {
   float: left;
   padding: 0px 15px;
@@ -58,4 +58,8 @@ footer {
     position: fixed;
     bottom: -20px;
     width: 100%;
+}
+
+.jumbotron {
+  font-family: 'Avant Garde', sans-serif;
 }

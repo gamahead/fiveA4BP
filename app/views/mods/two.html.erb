@@ -1,14 +1,14 @@
-<% provide(:title, "Module #{params[:id]}") %>
-<ul class="nav nav-pills nav-default">
-  <li><h1><%="Module "+params[:id].to_s%></h1></li>
-  <li><%= link_to(@aType+' 1', mods_one_url(:id => params[:id].to_i))%></li>
-  <li class="active"><%= link_to(@aType+' 2',mods_two_url(:id => params[:id].to_i))%></li>
-  <li><%= link_to("Post Skit Feedback", mods_feedback_url(:id => params[:id].to_i)) %></li>
-  <li><%= link_to("Explanation", mods_explain_url(:id => params[:id].to_i)) %></li>
-</ul>
+<div class="row">
+  <% provide(:title, "Module #{params[:id]}") %>
+  <ul class="nav nav-pills nav-default">
+    <li><h1><%="Module "+params[:id].to_s%></h1></li>
+    <li><%= link_to(@aType+' 1', mods_one_url(:id => params[:id].to_i))%></li>
+    <li class="active"><%= link_to(@aType+' 2',mods_two_url(:id => params[:id].to_i))%></li>
+    <li><%= link_to("Post Skit Feedback", mods_feedback_url(:id => params[:id].to_i)) %></li>
+    <li><%= link_to("Explanation", mods_explain_url(:id => params[:id].to_i)) %></li>
+  </ul>
 
-<div class="container">
-  <div class="row">
+  <div class="container">
     <div class="col-sm-4">
       <div class="panel panel-default">
         <!-- Default panel contents -->

@@ -12,10 +12,6 @@
       
       <%= f.password_field :password, class: "form-control", placeholder: "Password", required: "autofocus" %>
 
-      <label class="checkbox">
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-
       <%= f.submit "Sign in", class: "btn btn-lg btn-default btn-block"%>
 
       <p>New user? <%= link_to "Sign up now!", signup_path %></p>

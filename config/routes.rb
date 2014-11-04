@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
 
   root  'static_pages#home'
+  match '/intro',   to: 'static_pages#intro',   via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

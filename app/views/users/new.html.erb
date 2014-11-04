@@ -5,7 +5,7 @@
   <div class="col-md-4">
     <%= form_for(@user, class: "form-horizontal") do |f| %>
     <div class="form-group">
-      <h2 class="form-signin-heading">Sign In</h2>
+      <h2 class="form-signin-heading">Sign Up</h2>
     </div>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
@@ -28,7 +28,7 @@
       <%= f.password_field :password_confirmation , class: 'form-control' %>
     </div>
 
-    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Create my account", class: "btn btn-large btn-default" %>
     <% end %>
   </div>
   <div class="col-md-4"></div> <!-- For centering the sign-in form -->
