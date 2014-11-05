@@ -24,6 +24,7 @@ class ModsController < ApplicationController
   end
 
   def answer
+    puts params
     @aType = Mod.find(params[:id]).aType
 
     if !signed_in?
