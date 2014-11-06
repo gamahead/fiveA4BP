@@ -13,15 +13,20 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+
   <% if !@home %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-  </div>
-  <% else %>
-    <%= yield %>
+  <div class="container">
   <% end %>
+
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    
+    <%= yield %>
+
+  <% if !@home %>
+  </div>
+  <% end %>
+
 </body>
 </html>

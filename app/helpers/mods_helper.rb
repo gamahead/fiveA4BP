@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module ModsHelper
   def completed?(index)
-    !(YAML.load(current_user.answers)[index].nil?)
+    !(YAML.load(current_user.answers)[index].nil?) && !(YAML.load(current_user.answers)[index] == '')
   end
 
   def answer_for(index)

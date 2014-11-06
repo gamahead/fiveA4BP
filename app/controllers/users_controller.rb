@@ -18,11 +18,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    # TODO: ADD CLINIC
+    # TODO: ADD CLINIC NAME
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      @user.update_attribute(:answers,['','','','',''].to_yaml)
+      flash[:success] = "Account Successfully Created"
       redirect_to root_path
     else
       render 'new'

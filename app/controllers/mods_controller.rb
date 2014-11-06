@@ -31,7 +31,6 @@ class ModsController < ApplicationController
       flash[:danger] = 'You need to be signed in to do that'
 
     elsif params[:feedback][:answer] != ""
-      user_answers = YAML.load(User.find_by(email: current_user.email).answers)
       curr_user_answers = YAML.load(User.find_by(email: current_user.email).answers)
       curr_user_answers[params[:id].to_i - 1] = params[:feedback][:answer]
       User.find_by(email: current_user.email).update_attribute(:answers,curr_user_answers.to_yaml)
