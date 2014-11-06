@@ -83,7 +83,7 @@
   <% for i in 0..4 %>
   <div class="col-sm-6 col-md-2 col-lg-2">
     <div class="caption">
-      <%= link_to simple_format('Module ' + (i+1).to_s + "\n" + '<small>'+Mod.find(i+1).aType+((completed?(i)) ? ': Complete' : ': Incomplete').to_s+'</small>'), mods_one_path(:id => i+1), class: 'h3 col-lg-12 list-group-item list-group-item-'+((completed?(i)) ? 'success' : 'danger').to_s %>
+      <%= link_to simple_format('Module ' + (i+1).to_s + "\n" + '<small>'+Mod.find(i+1).aType+((completed?(i)) ? ': Complete' : ': Incomplete').to_s+'</small>'), mods_one_path(:id => i+1), class: 'h3 list-group-item list-group-item-'+((completed?(i)) ? 'success' : 'danger').to_s %>
       <div class="well well-sm">
         <h4>Feedback</h4>
         <p><%= answer_for(i) %></p>
