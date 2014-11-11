@@ -24,7 +24,7 @@ puts '--Seeding Database--'
 User.create(
 
 	name: 'Joshua Rose',
-	email: 'gamahead@gmail.com',
+	email: 'joshua.rose@rochester.edu',
 	password: 'jo3huajj',
 	password_confirmation: 'jo3huajj',
 	answers: ['a','b','c','d','e'].to_yaml
