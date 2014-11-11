@@ -6,10 +6,11 @@ class StaticPagesController < ApplicationController
 
   def home
     @home = true
-    @user = current_user
     if !signed_in?
       flash[:danger] = "You must be logged in to do that!"
       redirect_to new_session_path
+    else
+      @user = current_user
     end
   end
 
