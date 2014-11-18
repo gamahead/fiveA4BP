@@ -10,8 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//
 //= require turbolinks
 //= require dropdown
 //= require modal
@@ -19,4 +18,6 @@
 //= require tooltip
 //= require popover
 //= require button
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
