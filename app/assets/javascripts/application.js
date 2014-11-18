@@ -18,6 +18,7 @@
 //= require tooltip
 //= require popover
 //= require button
+//= require bootstrap.min
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
