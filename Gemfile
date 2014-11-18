@@ -4,7 +4,7 @@ ruby '1.9.3'
 
 gem 'rails', '4.1.1'
 gem 'bootstrap-sass', '3.2.0.2'
-gem 'sprockets', '2.11.0'
+gem 'sprockets'
 gem 'bcrypt'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
