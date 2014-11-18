@@ -27,7 +27,7 @@ User.create(
 	email: 'joshua.rose@rochester.edu',
 	password: 'jo3huajj',
 	password_confirmation: 'jo3huajj',
-	answers: ['a','b','c','d','e'].to_yaml
+	# answers: ['a','b','c','d','e'].to_yaml
 	)
 
 Mod.create(
