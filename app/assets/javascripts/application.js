@@ -11,8 +11,8 @@
 // about supported directives.
 //
 //= require_self
+//= require ttpop
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require ttpop
