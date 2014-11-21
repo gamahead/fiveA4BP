@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ttpop
 //= require turbolinks
+//= require ttpop
 //= require bootstrap
