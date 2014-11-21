@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104212630) do
+ActiveRecord::Schema.define(version: 20141121193845) do
 
   create_table "mods", force: true do |t|
     t.string   "aType"
@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 20141104212630) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.text     "answers",         default: "--- []\n"
-    t.text     "final_feedback",  default: "--- []\n" 
+    t.text     "final_feedback",  default: "--- []\n"
+    t.string   "clinic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -18,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # TODO: ADD CLINIC NAME
     @user = User.new(user_params)
     if @user.save
       sign_in @user
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
 
   	def user_params
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :clinic)
     end
 
     # Before filters
