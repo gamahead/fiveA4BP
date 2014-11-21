@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20141104212630) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.text     "answers",         default: "--- []\n"
-    t.text     "final_feedback"
+    t.text     "final_feedback",  default: "--- []\n" 
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

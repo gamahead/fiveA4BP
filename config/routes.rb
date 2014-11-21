@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
 
   root  'static_pages#home'
+  match '/',        to: 'static_pages#finalFb', via: 'post'
   match '/intro',   to: 'static_pages#intro',   via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/test',    to: 'static_pages#test',    via: 'get'
   match '/mods/feedback', to: 'mods#answer', via: 'post'
-  # match '/mods/feedback',   to:  'users#answer',  via: 'post'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

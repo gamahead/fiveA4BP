@@ -35,14 +35,14 @@ class ModsController < ApplicationController
       curr_user_answers = YAML.load(User.find_by(email: current_user.email).answers)
       curr_user_answers[params[:id].to_i - 1] = params[:feedback][:answer]
       User.find_by(email: current_user.email).update_attribute(:answers,curr_user_answers.to_yaml)
-      flash.now[:success] = 'Answer successfully submitted'
+      flash[:success] = 'Answer successfully submitted'
 
     else
       flash.now[:danger] = 'Answer required'
 
     end
 
-    render 'feedback'
+    redirect_to "/mods/explain?id=#{params[:id]}"
 
   end
 

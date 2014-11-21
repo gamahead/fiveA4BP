@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       sign_in @user
       @user.update_attribute(:answers,['','','','',''].to_yaml)
       flash[:success] = "Account Successfully Created"
-      redirect_to root_path
+      redirect_to intro_url
     else
       render 'new'
     end

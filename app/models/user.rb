@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 require 'yaml'
 class User < ActiveRecord::Base
-  has_many :answer, dependent: :destroy
+
   serialize :answer, YAML
+  serialize :final_feedbacks, YAML
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
