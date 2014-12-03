@@ -1325,7 +1325,7 @@
             that.$element.trigger(completeEvent)
           }
 
-      this.$element.trigger(startEvent)
+      this.$element.triggerHandler(startEvent)
 
       if (startEvent.isDefaultPrevented()) return
 
