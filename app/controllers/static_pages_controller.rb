@@ -16,7 +16,8 @@ class StaticPagesController < ApplicationController
   end
 
   def finalFb
-    cuffy = YAML.load(current_user.final_feedback) #cuffy for current user final feedback yaml
+    cuffy = []
+    # cuffy = YAML.load(current_user.final_feedback) #cuffy for current user final feedback yaml
     i = 0 
 
     # I don't like having to iterate through the params like this, but it seems better than
