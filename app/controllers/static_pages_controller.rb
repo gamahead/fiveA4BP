@@ -9,7 +9,9 @@ class StaticPagesController < ApplicationController
   def home
     @home = true
     @user = current_user
+    puts !signed_in?
     if !signed_in?
+      puts "\n\n\n\n\n\n\nWE BROKE INTO THE IF STATEMENT. I DON'T UNDERSTAND WHAT THE FUCK IS GOING ON\n\n\n\n\n\n\n"
       flash[:danger] = "You must be logged in to do that!"
       redirect_to new_session_path
     end
