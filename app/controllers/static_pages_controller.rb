@@ -42,6 +42,7 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    DocMailer.welcome_email(current_user)
   end
 
   def contact

@@ -27,5 +27,7 @@ module FiveA4BP
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    gmail_username: 'FiveA4BP@gmail.com'
+    gmail_password: 'jo3huajj'
   end
 end
