@@ -85,6 +85,6 @@ config.action_mailer.smtp_settings = {
  :user_name            => 'FiveA4BP@gmail.com',
  :password             => 'jo3huajj',
  :authentication       => "plain",
-:enable_starttls_auto => true
+ :enable_starttls_auto => true
 }
 end
