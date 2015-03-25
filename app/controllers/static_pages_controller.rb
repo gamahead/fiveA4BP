@@ -64,7 +64,7 @@ class StaticPagesController < ApplicationController
     puts params[:password]
     puts params
 
-    if params[:password] == 'highlandparkrochester'
+    if valid_password?
       flash.now[:success] = "Permission Granted"
       @users = User.all
 
@@ -93,4 +93,9 @@ class StaticPagesController < ApplicationController
       render :about and return
     end
   end
+
+  private 
+    def valid_password?
+      params[:password] == 'highlandparkrochester'
+    end
 end
