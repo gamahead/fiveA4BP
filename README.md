@@ -11,7 +11,7 @@ This part is for my own, personal use when working on the mac pro in Rettner Hal
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew doctor
 ```
-(I may have had to install gpg from somewhere too, but brew may have taken care of that. Can't remember)
+1.5) Install [gpg tools](https://gpgtools.org/) 
 
 2) Install RVM with Ruby 1.9.3
 ```bash
