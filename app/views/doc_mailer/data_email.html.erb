@@ -4,14 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.name %></h1>
-    <p>
-      You have successfully finished
-    </p>
-    <p>
-      Your results are as follows: 
-      <%= @user.answers %>
-    </p>
+    <h2>You've successfully finished, <%= @user.name %></h2>
+    <h3>Your results are as follows</h3>
+    <%= render inline: format_answers %>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>

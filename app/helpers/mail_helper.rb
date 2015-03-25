@@ -5,7 +5,7 @@ require 'yaml'
 module MailHelper
 
   # Format users responses into a string for the email
-  def format_answers(answers)
+  def format_answers
 
     user_answers = YAML::load(User.find_by(:email => 'joshua.rose@rochester.edu').answers)
     mail_string = "" # String to be returned containing formatted html and answers
