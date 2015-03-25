@@ -65,7 +65,7 @@ class StaticPagesController < ApplicationController
     puts params
 
     if params[:password] == 'highlandparkrochester'
-
+      flash.now[:success] = "Permission Granted"
       @users = User.all
 
       csv_string = CSV.generate do |csv|
@@ -86,9 +86,10 @@ class StaticPagesController < ApplicationController
       end         
       send_data csv_string,
       :type => 'text/csv; charset=iso-8859-1; header=present',
-      :disposition => "attachment; filename=users.csv" 
+      :disposition => "attachment; filename=user_data.csv"
+      redirect_back_or root_url
     else
-      flash[:danger] = "Permission Denied - Password Incorrect"
+      flash.now[:danger] = "Permission Denied - Password Incorrect"
       render :about and return
     end
   end
