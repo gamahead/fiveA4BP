@@ -56,7 +56,19 @@ class StaticPagesController < ApplicationController
         
         for user in @users
           answers = YAML::load(user.answers) # answers to modules
+
+          if answers.null?
+            answers = ['','','','','']
+          end
+
+          # Null entries cause problems with converting to string for the csv
           ff = YAML::load(user.final_feedback) # final feedback responses
+          
+          # Null entries cause problems with converting to string for the csv
+          if ff.null?
+            ff = ['','','','','']
+          end
+
           (answers << ff).flatten!
           info = [user.clinic, user.name, user.email]
           (info << answers).flatten!
