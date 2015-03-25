@@ -61,7 +61,8 @@ class StaticPagesController < ApplicationController
   # TODO: Make sure not all users are able to access this functionality
   def ExportToCsv
 
-    puts params
+    if params[:password] == 'highlandparkrochester'
+
       @users = User.all
 
       csv_string = CSV.generate do |csv|
@@ -80,8 +81,12 @@ class StaticPagesController < ApplicationController
           csv << info
         end
       end         
-    send_data csv_string,
-    :type => 'text/csv; charset=iso-8859-1; header=present',
-    :disposition => "attachment; filename=users.csv" 
+      send_data csv_string,
+      :type => 'text/csv; charset=iso-8859-1; header=present',
+      :disposition => "attachment; filename=users.csv" 
+    else
+      flash[:danger] = "Permission Denied - Password Incorrect"
+      render :about and return
     end
+  end
 end
