@@ -67,9 +67,7 @@ class StaticPagesController < ApplicationController
     :type => 'text/csv; charset=iso-8859-1; header=present',
     :disposition => "attachment; filename=users.csv" 
    end
-
-    export_to_csv
-    render
+   export_to_csv
   end
 
   def contact
