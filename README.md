@@ -34,4 +34,11 @@ $ brew install postgresql
 $ bundle install
 ```
 
-Then do all of the git stuff
+6) Then do all of the git stuff
+
+7) Intall the [heroku toolbelt](https://toolbelt.heroku.com/)
+
+8) Add heroku remote 
+```bash
+$ heroku git:remote -a fivea4bp
+```
