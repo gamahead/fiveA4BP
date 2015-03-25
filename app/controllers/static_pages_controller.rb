@@ -61,6 +61,8 @@ class StaticPagesController < ApplicationController
   # TODO: Make sure not all users are able to access this functionality
   def ExportToCsv
 
+    puts params[:password]
+
     if params[:password] == 'highlandparkrochester'
 
       @users = User.all
