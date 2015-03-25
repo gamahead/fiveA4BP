@@ -90,6 +90,7 @@ class StaticPagesController < ApplicationController
     else
       flash.now[:danger] = "Permission Denied - Password Incorrect"
     end
+    render :about
   end
 
   private 
