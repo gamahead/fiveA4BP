@@ -75,7 +75,6 @@ class StaticPagesController < ApplicationController
 
 
    export_to_csv
-   render
   end
 
   def contact
