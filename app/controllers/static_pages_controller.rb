@@ -47,10 +47,10 @@ class StaticPagesController < ApplicationController
     def export_to_csv       
       @users = User.all
       csv_string = CSV.generate do |csv|
-      csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5"]
+      csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]
       @users.each do |user|
         answers = YAML::load(user.answers) # answers to modules
-        ff = User.find(1).final_feedback # final feedback responses
+        ff = YAML::load(user.final_feedback) # final feedback responses
         (answers << ff).flatten!
         info = [user.clinic, user.name, user.email]
         (info << answers).flatten!
