@@ -96,6 +96,6 @@ class StaticPagesController < ApplicationController
 
   private 
     def valid_password?
-      params[:password] == 'highlandparkrochester'
+      params[:about][:password] == 'highlandparkrochester'
     end
 end
