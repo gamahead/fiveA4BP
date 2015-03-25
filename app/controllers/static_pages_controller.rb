@@ -44,7 +44,7 @@ class StaticPagesController < ApplicationController
     DocMailer.data_email(current_user).deliver
 
     def export_to_csv       
-      @users = User.find(:all)
+      @users = User.all
       csv_string = CSV.generate do |csv|
            csv << ["Id", "Name", "Email","Role"]
            @users.each do |user|
