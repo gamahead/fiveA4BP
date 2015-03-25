@@ -44,10 +44,24 @@ class StaticPagesController < ApplicationController
   def about
     # DocMailer.data_email(current_user).deliver
 
-    # This method consolidates user information and sends a csv to the user
-    # TODO: Make sure not all users are able to access this functionality
-    def export_to_csv
 
+   render :about
+  end
+
+  def contact
+  end
+
+  def intro
+  end
+
+  def forbes
+  end
+
+  # This method consolidates user information and sends a csv to the user
+  # TODO: Make sure not all users are able to access this functionality
+  def ExportToCsv
+
+    puts params
       @users = User.all
 
       csv_string = CSV.generate do |csv|
@@ -69,18 +83,5 @@ class StaticPagesController < ApplicationController
     send_data csv_string,
     :type => 'text/csv; charset=iso-8859-1; header=present',
     :disposition => "attachment; filename=users.csv" 
-   end
-
-   export_to_csv
-   render :about
-  end
-
-  def contact
-  end
-
-  def intro
-  end
-
-  def forbes
-  end
+    end
 end
