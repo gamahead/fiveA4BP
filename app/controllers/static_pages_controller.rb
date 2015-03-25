@@ -43,9 +43,6 @@ class StaticPagesController < ApplicationController
 
   def about
     # DocMailer.data_email(current_user).deliver
-
-
-   render :about
   end
 
   def contact
@@ -61,11 +58,7 @@ class StaticPagesController < ApplicationController
   # TODO: Make sure not all users are able to access this functionality
   def ExportToCsv
 
-    puts params[:password]
-    puts params
-
     if valid_password?
-      flash.now[:success] = "Permission Granted"
       @users = User.all
 
       csv_string = CSV.generate do |csv|
@@ -87,10 +80,9 @@ class StaticPagesController < ApplicationController
       send_data csv_string,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=user_data.csv"
-      redirect_to :about
     else
       flash.now[:danger] = "Permission Denied - Password Incorrect"
-      render :about and return
+      render 'about' and return
     end
   end
 
