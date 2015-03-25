@@ -62,7 +62,7 @@ class StaticPagesController < ApplicationController
           end
 
           # Null entries cause problems with converting to string for the csv
-          ff = YAML::load(user.final_feedback).nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
+          ff = user.final_feedback.nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
           
           puts "OMFG WHAT THE HELL IS GOING ON IN THIS COLD COLD WORLD**************************"
           puts ff
