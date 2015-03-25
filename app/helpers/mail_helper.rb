@@ -14,8 +14,8 @@ module MailHelper
     for answer in user_answers
       mail_string += "<h3>"
       mail_string += "Question #{answer_number}: " + Mod.find(answer_number).aType 
-      mail_string += "</h3>\n"
-      mail_string += "<p>#{answer}<p>\n"
+      mail_string += "</h3>"
+      mail_string += "<p>#{answer}<p>"
       answer_number += 1
     end
 
