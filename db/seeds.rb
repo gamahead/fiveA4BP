@@ -21,14 +21,15 @@ require 'yaml'
 
 puts '--Seeding Database--'
 
-User.create(
+User.create!(
 
 	name: 'Joshua Rose',
 	email: 'joshua.rose@rochester.edu',
 	password: 'jo3huajj',
 	password_confirmation: 'jo3huajj',
 	answers: ['','','','',''].to_yaml,
-	final_feedback: ['','','','',''].to_yaml
+	final_feedback: ['','','','',''].to_yaml,
+	clinic: 'Dept. of Family Medicine - University of Rochester'
 	)
 
 Mod.create(
