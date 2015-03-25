@@ -3,6 +3,7 @@
 # encoding: utf-8
 
 require 'yaml'
+require 'csv'
 
 class StaticPagesController < ApplicationController
 
@@ -46,11 +47,15 @@ class StaticPagesController < ApplicationController
     def export_to_csv       
       @users = User.all
       csv_string = CSV.generate do |csv|
-           csv << ["Id", "Name", "Email","Role"]
-           @users.each do |user|
-             csv << [user.id, user.name, user.name, user.role]
-           end
-      end         
+      csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5"]
+      @users.each do |user|
+        answers = YAML::load(user.answers)
+        csv << [user.id, user.name, user.email]
+        for answer in answers
+          csv << answer
+        end
+      end
+    end         
     
      send_data csv_string,
      :type => 'text/csv; charset=iso-8859-1; header=present',
