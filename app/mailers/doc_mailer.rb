@@ -7,6 +7,8 @@ class DocMailer < ActionMailer::Base
 
   def data_email(user)
   	@user = user
+  	@formatted_answers = format_answers
   	mail(to: 'gamahead@gmail.com', subject: user.name+' Data')
+
   end
 end
