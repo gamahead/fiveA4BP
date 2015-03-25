@@ -11,8 +11,7 @@ class StaticPagesController < ApplicationController
     @user = current_user
     puts !signed_in?
     if !signed_in?
-      puts "\n\n\n\n\n\n\nWE BROKE INTO THE IF STATEMENT. I DON'T UNDERSTAND WHAT THE FUCK IS GOING ON\n\n\n\n\n\n\n"
-      flash[:danger] = "You must be logged in to do that!"
+      flash[:danger] = "Please login or create an account before accessing the home page"
       redirect_to new_session_path
     end
   end
@@ -43,6 +42,22 @@ class StaticPagesController < ApplicationController
 
   def about
     DocMailer.data_email(current_user).deliver
+
+    def export_to_csv       
+      @users = User.find(:all)
+      csv_string = CSV.generate do |csv|
+           csv << ["Id", "Name", "Email","Role"]
+           @users.each do |user|
+             csv << [user.id, user.name, user.name, user.role]
+           end
+      end         
+    
+     send_data csv_string,
+     :type => 'text/csv; charset=iso-8859-1; header=present',
+     :disposition => "attachment; filename=users.csv" 
+    end
+
+    export_to_csv
   end
 
   def contact
