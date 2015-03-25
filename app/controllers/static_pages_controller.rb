@@ -44,24 +44,29 @@ class StaticPagesController < ApplicationController
   def about
     DocMailer.data_email(current_user).deliver
 
-    def export_to_csv       
+    # This method consolidates user information and sends a csv to the user
+    # TODO: Make sure not all users are able to access this functionality
+    def export_to_csv
+
       @users = User.all
+
       csv_string = CSV.generate do |csv|
-      csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]
-      @users.each do |user|
-        answers = YAML::load(user.answers) # answers to modules
-        ff = YAML::load(user.final_feedback) # final feedback responses
-        (answers << ff).flatten!
-        info = [user.clinic, user.name, user.email]
-        (info << answers).flatten!
-        csv << info
-      end
-    end         
-    
-     send_data csv_string,
-     :type => 'text/csv; charset=iso-8859-1; header=present',
-     :disposition => "attachment; filename=users.csv" 
-    end
+
+        csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]
+        
+        for user in @users
+          answers = YAML::load(user.answers) # answers to modules
+          ff = YAML::load(user.final_feedback) # final feedback responses
+          (answers << ff).flatten!
+          info = [user.clinic, user.name, user.email]
+          (info << answers).flatten!
+          csv << info
+        end
+      end         
+    send_data csv_string,
+    :type => 'text/csv; charset=iso-8859-1; header=present',
+    :disposition => "attachment; filename=users.csv" 
+   end
 
     export_to_csv
     render
