@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       @user.update_attribute(:answers,['','','','',''].to_yaml)
+      @user.update_attribute(:final_feedback,['','','','',''].to_yaml)
       flash[:success] = "Account Successfully Created"
       redirect_to intro_url
     else

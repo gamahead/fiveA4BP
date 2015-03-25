@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/about',   to: 'static_pages#ExportToCsv', via: 'post'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/test',    to: 'static_pages#test',    via: 'get'
   match '/mods/feedback', to: 'mods#answer', via: 'post'

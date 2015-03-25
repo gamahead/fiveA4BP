@@ -3,6 +3,7 @@
 # encoding: utf-8
 
 require 'yaml'
+require 'csv'
 
 class StaticPagesController < ApplicationController
 
@@ -11,8 +12,7 @@ class StaticPagesController < ApplicationController
     @user = current_user
     puts !signed_in?
     if !signed_in?
-      puts "\n\n\n\n\n\n\nWE BROKE INTO THE IF STATEMENT. I DON'T UNDERSTAND WHAT THE FUCK IS GOING ON\n\n\n\n\n\n\n"
-      flash[:danger] = "You must be logged in to do that!"
+      flash[:danger] = "Please login or create an account before accessing the home page"
       redirect_to new_session_path
     end
   end
@@ -42,6 +42,7 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    # DocMailer.data_email(current_user).deliver
   end
 
   def contact
@@ -52,4 +53,41 @@ class StaticPagesController < ApplicationController
 
   def forbes
   end
+
+  # This method consolidates user information and sends a csv to the user
+  # TODO: Make sure not all users are able to access this functionality
+  def ExportToCsv
+
+    if valid_password?
+      @users = User.all
+
+      csv_string = CSV.generate do |csv|
+        csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]  
+        for user in @users
+
+          # Null entries cause problems with converting to string for the csv
+          answers = user.answers.nil? ? ['','','','',''] : YAML::load(user.answers) # answers to modules
+
+          # Null entries cause problems with converting to string for the csv
+          ff = user.final_feedback.nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
+
+          (answers << ff).flatten!
+          info = [user.clinic, user.name, user.email]
+          (info << answers).flatten!
+          csv << info
+        end
+      end         
+      send_data csv_string,
+      :type => 'text/csv; charset=iso-8859-1; header=present',
+      :disposition => "attachment; filename=user_data.csv"
+    else
+      flash.now[:danger] = "Permission Denied - Password Incorrect"
+      render 'about' and return
+    end
+  end
+
+  private 
+    def valid_password?
+      params[:about][:password] == 'highlandparkrochester'
+    end
 end
