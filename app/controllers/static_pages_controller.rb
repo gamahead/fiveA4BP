@@ -51,9 +51,7 @@ class StaticPagesController < ApplicationController
       @users = User.all
 
       csv_string = CSV.generate do |csv|
-
-        csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]
-        
+        csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]  
         for user in @users
 
           # Null entries cause problems with converting to string for the csv
@@ -73,8 +71,8 @@ class StaticPagesController < ApplicationController
     :disposition => "attachment; filename=users.csv" 
    end
 
-
    export_to_csv
+   render :about
   end
 
   def contact
