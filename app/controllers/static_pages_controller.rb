@@ -62,6 +62,7 @@ class StaticPagesController < ApplicationController
   def ExportToCsv
 
     puts params[:password]
+    puts params
 
     if params[:password] == 'highlandparkrochester'
 
