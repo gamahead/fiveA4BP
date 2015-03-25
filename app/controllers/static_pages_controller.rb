@@ -87,10 +87,11 @@ class StaticPagesController < ApplicationController
       send_data csv_string,
       :type => 'text/csv; charset=iso-8859-1; header=present',
       :disposition => "attachment; filename=user_data.csv"
+      render :about and return
     else
       flash.now[:danger] = "Permission Denied - Password Incorrect"
+      render :about and return
     end
-    render :about
   end
 
   private 
