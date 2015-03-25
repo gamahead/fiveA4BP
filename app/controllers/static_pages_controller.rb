@@ -55,22 +55,12 @@ class StaticPagesController < ApplicationController
         csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]
         
         for user in @users
-          answers = YAML::load(user.answers) # answers to modules
 
-          if answers.nil?
-            answers = ['','','','','']
-          end
+          # Null entries cause problems with converting to string for the csv
+          answers = user.answers.nil? ? ['','','','',''] : YAML::load(user.answers) # answers to modules
 
           # Null entries cause problems with converting to string for the csv
           ff = user.final_feedback.nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
-          
-          puts "OMFG WHAT THE HELL IS GOING ON IN THIS COLD COLD WORLD**************************"
-          puts ff
-
-          # Null entries cause problems with converting to string for the csv
-          if ff.nil?
-            ff = ['','','','','']
-          end
 
           (answers << ff).flatten!
           info = [user.clinic, user.name, user.email]
@@ -83,6 +73,7 @@ class StaticPagesController < ApplicationController
     :disposition => "attachment; filename=users.csv" 
    end
    export_to_csv
+   render
   end
 
   def contact
