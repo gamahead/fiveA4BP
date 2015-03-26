@@ -55,3 +55,4 @@ gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 gem 'minitest'
 gem 'magic_encoding'
 gem 'sprockets_better_errors'
+gem 'sass', '3.2.19'
