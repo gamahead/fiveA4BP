@@ -32,7 +32,7 @@ group :test do
    gem 'wdm', '0.1.0'
 end
 
-gem 'sass-rails'
+gem 'sass-rails', github: 'rails/sass-rails', branch: '4-0-stable'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
@@ -51,5 +51,4 @@ end
 gem 'tzinfo-data', platforms: [:x64_mingw,:mingw, :mswin]
 gem 'minitest'
 gem 'magic_encoding'
-gem 'sprockets_better_errors'
 gem 'sass', '3.2.19'
