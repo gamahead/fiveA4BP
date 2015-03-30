@@ -9042,3 +9042,8 @@ p {
   width: 175px;
   word-wrap: break-word;
 }
+
+/* line 75, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+.panel-title .container {
+  margin-left: 0px;
+}
