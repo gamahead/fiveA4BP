@@ -72,49 +72,30 @@
 </div>
 
 <!-- not-modal -->
-<div class="page-header">
-  <div class="col-lg-1"></div>
-  <h1>The 5A's For Blood Pressure <medium>|</medium> <small><%=current_user.name+' - '+current_user.clinic%></small></h1>
+<div class="page-header ">
+  <div class="col-lg-1 col-md-1 col-sm-1"></div>
+  <h1>The 5A's For Blood Pressure <medium>|</medium> <small><%=current_user.name%></small></h1>
 </div>
-<!-- <div class="row">
-  <div class="col-md-1"></div>
-  <% for i in 0..4 %>
-  <div class="col-sm-6 col-md-2 col-lg-2">
-    <div class="caption">
-      <%= link_to simple_format('Module ' + (i+1).to_s + "\n" + '<small>'+Mod.find(i+1).aType+((completed?(i)) ? ': Complete' : ': Incomplete').to_s+'</small>'), mods_one_path(:id => i+1), class: 'h3 col-lg-12 list-group-item list-group-item-'+((completed?(i)) ? 'success' : 'danger').to_s %>
-      <div class="well well-sm">
-        <h4>Feedback</h4>
-        <p><%= answer_for(i) %></p>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div> -->
+
 
 <div class="col-lg-12">
-  <div class="col-lg-1"></div>
+  <div class="col-lg-1 col-md-1"></div>
   <div class="col-md-10 col-lg-10">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <% for i in 1..5 %>
+      <% for i in 1..5 %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
-          <h4 class="panel-title">
+          <div class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" aria-expanded="true" aria-controls="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>">
-             <div class="container">
-              <div class="row">
-              <div class="col-lg-6"><h4>Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small></h4></div>
-              <div class="col-lg-5">
-              <div class="text-right col-lg-12"><h4><%=((completed?(i-1)) ? 'Complete' : 'Incomplete').to_s%></h4>
-              </div>
-              </div>
-              </div>
+             <div class="container" <%= raw popover_like_its_hot(i) %>>
+              <h4>Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small></h4>
             </div>
-           </a>
-         </h4>
-       </div>
-       <div id="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" class="panel-collapse collapse<%= %Q(#{(i == 1) ? ' in' : ''}) %>" role="tabpanel" aria-labelledby="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
+          </a>
+        </div>
+      </div>
+      <div id="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
         <div class="panel-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+          <p><%= answer_for(i) %></p>
         </div>
       </div>
     </div>
