@@ -9011,39 +9011,33 @@ body {
 }
 
 /* line 49, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
-.panel-body {
-  padding-top: 0px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 0px;
-}
-
-/* line 56, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 .jumbotron {
   font-family: 'Avant Garde', sans-serif;
 }
 
-/* line 60, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+/* line 53, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 .modal-body {
   font-family: 'Roboto', sans-serif;
 }
-/* line 62, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+/* line 55, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 .modal-body .form-group {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* line 65, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+/* line 58, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 .modal-header {
   font-family: "Cabin", sans-serif;
 }
 
-/* line 69, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+/* line 62, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 p {
   width: 175px;
   word-wrap: break-word;
 }
 
-/* line 75, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
+/* line 68, /Users/jrose15/Desktop/fivea4bp/app/assets/stylesheets/override.css.scss */
 .panel-title .container {
   margin-left: 0px;
+  margin-right: 0px;
+  font-size: 2em;
 }
