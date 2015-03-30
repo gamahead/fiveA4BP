@@ -77,7 +77,6 @@
   <h1>The 5A's For Blood Pressure <medium>|</medium> <small><%=current_user.name%></small></h1>
 </div>
 
-
 <div class="col-lg-12">
   <div class="col-lg-1 col-md-1"></div>
   <div class="col-md-10 col-lg-10">
@@ -85,17 +84,17 @@
       <% for i in 1..5 %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
-          <div class="panel-title">
+          <div class="panel-title" <%= raw popover_like_its_hot(i) %>>
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" aria-expanded="true" aria-controls="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>">
-             <div class="container" <%= raw popover_like_its_hot(i) %>>
-              <h4>Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small></h4>
+             <div class="container">
+             <%= content_tag(:i, " " ,:class=>' glyphicon glyphicon-search') -%> Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small>
             </div>
           </a>
         </div>
       </div>
       <div id="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
         <div class="panel-body">
-          <p><%= answer_for(i) %></p>
+          <%= answer_for(i-1) %>
         </div>
       </div>
     </div>
