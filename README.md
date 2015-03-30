@@ -23,9 +23,8 @@ RVM should set ruby version to 1.9.3 after entering the fivea4bp folder automati
 
 3) Install [Postgres.app](http://postgresapp.com/)
 
-4) Install pg gem (These two commands do the same thing two different ways it seems, and I'm not convinced they are both necessary. Try the second one only next time)
+4) Install pg
 ```bash
-$ gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin
 $ brew install postgresql
 ```
 
