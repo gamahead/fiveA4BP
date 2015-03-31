@@ -71,47 +71,53 @@
 </div>
 </div>
 
+<div class="container">
 <!-- not-modal -->
 <div class="page-header ">
-  <div class="col-lg-1 col-md-1 col-sm-1"></div>
   <h1>The 5A's For Blood Pressure <medium>|</medium> <small><%=current_user.name%></small></h1>
 </div>
 
 
-<div class="col-lg-12">
-  <div class="col-lg-1 col-md-1"></div>
-  <div class="col-md-10 col-lg-10">
+  <div class="col-md-12 col-lg-12">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <% for i in 1..5 %>
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
-          <div class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" aria-expanded="true" aria-controls="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>">
-             <div class="container">
-              <h4>Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small></h4>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div id="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
-        <div class="panel-body">
-          <%= answer_for(i-1) %>
+          <div class="container">
+            <div class="panel-title col-lg-11 col-md-11 col-sm-10">
+             <div class="row">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" aria-expanded="true" aria-controls="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>">
+               <div class="col-lg-11 col-md-10 col-sm-10 col-xs-8">
+                <h4>Module <%=(i).to_s%><small><%=" ("+Mod.find(i).aType+')'%></small></h4>
+              </div>
+              <div class="col-lg-1 col-md-2 col-sm-2 col-xs-4">
+                <span class="label label-<%= raw (completed?(i-1) ? "success" : "danger") %>"><%= raw (completed?(i-1) ? "Complete" : "Incomplete") %></span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <% end %>
-  </br></br></br>
-
-  <% if finished_mods? %>
-
-  <button type="button" class="btn btn-success btn-lg col-lg-12" data-toggle="modal" data-target="#myModal">
-    Final Feedback
-  </button>
-
-  <% else %> 
-
-  <button onclick="return false" type="button" class="btn btn-default btn-lg col-lg-12 active" autocomplete='off' role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Locked" data-content="Final Feedback is not available until all 5 modules have been completed">Final Feedback</button>
-
+    <div id="collapse<%= %Q(#{numeric_to_english(i.to_s)})%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= %Q(#{numeric_to_english(i.to_s)})%>">
+      <div class="panel-body">
+        <%= answer_for(i-1) %>
+      </div>
+    </div>
+  </div>
   <% end %>
+</div>
+</br></br></br>
+
+<% if finished_mods? %>
+
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+  Final Feedback
+</button>
+
+<% else %> 
+
+<button onclick="return false" type="button" class="btn btn-default btn-lg active" autocomplete='off' role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Locked" data-content="Final Feedback is not available until all 5 modules have been completed">Final Feedback</button>
+
+<% end %>
 </div>
 </div>
