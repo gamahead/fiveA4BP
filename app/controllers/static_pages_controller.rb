@@ -52,6 +52,12 @@ class StaticPagesController < ApplicationController
   end
 
   def forbes
+    r = rand(1..2)
+    if r == 1
+      redirect_to "https://surveyplanet.com/5529fe1566ae4ea16c2da228"
+    else
+      redirect_to "https://surveyplanet.com/5529f805cf98d1a26c979ef1"
+    end
   end
 
   # This method consolidates user information and sends a csv to the user
