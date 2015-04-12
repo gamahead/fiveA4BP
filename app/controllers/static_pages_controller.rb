@@ -51,6 +51,8 @@ class StaticPagesController < ApplicationController
   def intro
   end
 
+  # This little piece is for Nikki's survey. She needed to randomize which survey is taken
+  # so https://wwww.fivea4bp.herokuapp.com/forbes redirects to one of the links randomly
   def forbes
     r = rand(1..2)
     if r == 1
