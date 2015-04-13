@@ -32,22 +32,31 @@ User.create!(
 	clinic: 'Dept. of Family Medicine - University of Rochester'
 	)
 
+# Mod 1
 Mod.create(
 
 aType: "Ask/Assess", 
-vidOneSource: "https://www.youtube.com/embed/0knXQOM0Tpw", 
+vidOneSource: "https://www.youtube.com/embed/sYuZTxb3mMI", 
 vidTwoSource: "https://www.youtube.com/embed/fXWsGQSFnkE", 
-explanation: "In the second video, the doctor asked two several important questions. First, he asked if there was something else. This helps get all the issues on the agenda. Second, he asked the patient for permission to address the blood pressure first. Last, he asked if she understood her goal.", 
+explanation: "In the second video, the doctor asked several important questions. First, she asked if there was something else. This helps get all the issues on the agenda. Second, she asked the patient for permission to address the blood pressure first. Last, she asked Janice if she understood her goal.", 
 
 dialogueOne: 
 %Q(<ul class="list-group">
-	<li class="list-group-item">Doc: Good morning, Janice. How are you?</li>
-	<li class="list-group-item list-group-item-info">Pt: I am good.</li>
-	<li class="list-group-item">Doc: What brings you into today?</li>
-	<li class="list-group-item list-group-item-info">Pt: My knee is still bothering me…</li>
-	<li class="list-group-item">Doc: OK. We will get to that. First, I want to tell you that your blood pressure is kind of high today.</li>
-	<li class="list-group-item list-group-item-info">Pt: I didn't take my medication I was rushing this morning.</li>
-	<li class="list-group-item">Doc: I want to let you know that it is important to take your blood pressure medication first thing the morning.</li>
+	<li class="list-group-item">Doc: Hello, I'm doctor Fiscella.</li>
+	<li class="list-group-item list-group-item-info">Pt: Hi, nice to meet you. </li>
+	<li class="list-group-item">Doc: And you're Janice?</li>
+	<li class="list-group-item list-group-item-info">Pt: Yes.</li>
+	<li class="list-group-item">Doc: How are you doing today?</li>
+	<li class="list-group-item list-group-item-info">Pt: I'm ok.</li>
+	<li class="list-group-item">Doc: What brings you in today?</li>
+	<li class="list-group-item list-group-item-info">Pt: My knee is bothering me.</li>
+	<li class="list-group-item">Doc: Your knee is bothering you?</li>
+	<li class="list-group-item list-group-item-info">Pt: Mhm.</li>
+	<li class="list-group-item">Doc: Ok. We'll get to that in just a minute, but I wanted to talk to you about your blood pressure. It's really high today. </li>
+	<li class="list-group-item list-group-item-info">Pt: Ok.</li>
+	<li class="list-group-item">Doc: Did you take your medication today? </li>
+	<li class="list-group-item list-group-item-info">Pt: No, I was in a rush. I'll take it when I get home.</li>
+	<li class="list-group-item">Doc: You really need to take it every day. It's important.</li>
 </ul>),
 
 dialogTwo:
@@ -65,12 +74,13 @@ dialogTwo:
 
 )
 
+# Mod 2
 Mod.create(
 
 aType: "Advise", 
 vidOneSource: "https://www.youtube.com/embed/qSfXClaYNgI", 
-vidTwoSource: "https://www.youtube.com/embed/1jtIk1vzf1E", 
-explanation: "In both videos, the doctor provides some useful advice. However, in the first one, the doctor is more interactive – drawing answers out of the patient rather than just giving out information. This approach analogous to motivational interviewing helps patients process the information better.", 
+vidTwoSource: "https://www.youtube.com/embed/YimyhkP_VDQ", 
+explanation: "In both videos, the doctor provides some useful advice. However, in the first one, the doctor is more interactive – drawing answers out of the patient rather than just giving out information. This approach is analogous to motivational interviewing, which helps patients process the information better.", 
 
 dialogueOne: 
 %Q(<ul class="list-group">
@@ -83,24 +93,24 @@ dialogueOne:
 
 dialogTwo:
 %Q(<ul class="list-group">
-	<li class="list-group-item">Doc: Janice, as we talked about this before, your blood pressure is really high today. We’ve talked a lot about it in the past, but to recap it, it is very important to keep your blood pressure under control to prevent your risk for heart attacks and strokes. I want you to do all that you can to take your blood pressure every morning, especially to remember to take it when you wake up.</li>
-	<li class="list-group-item list-group-item-info">Pt: I was rushing this morning and will take my pills when I get home….</li>
-	<li class="list-group-item">Doc: Its much better to take them first thing in the morning no matter how rushed you are. As I said,  high blood pressure increases your risk for heart attacks and stroke..</li>
-	<li class="list-group-item list-group-item-info">Pt: I know….</li>
+	<li class="list-group-item">Doc: Janice your bp is too high today. We've talked a lot about why it's important to keep it down. High blood pressure really increases your risks for heart attacks and strokes, and you really need to take it every morning.</li>
+	<li class="list-group-item list-group-item-info">Pt: I know, I was rushing this morning, but I'll take it when I get home.</li>
+	<li class="list-group-item">Doc: You really need to take it first thing in the morning. We've talked about this before.</li>
 </ul>)
 
 )
 
+# Mod 3
 Mod.create(
 
 aType: "Agree", 
 vidOneSource: "https://www.youtube.com/embed/GKcHDfZgtiE", 
-vidTwoSource: "https://www.youtube.com/embed/dEFIcBpI_Uc", 
-explanation: "In the first video, the doctor provides a lot of information and then asks the patient if that is OK. It is more helpful, to chunk the information and obtain agreement for each step. First the doctor asks Janice if she willing to commit to the goal. Next, the doctor raises the issue of meeting monthly until her blood pressure is controlled. This puts this issue out there for discussion and supports the patient’s autonomy in decision making.", 
+vidTwoSource: "https://www.youtube.com/embed/wMMg2oV1A4k", 
+explanation: "In the first video, the doctor provides a lot of information and then asks the patient if that is OK. It is more helpful to chunk the information and obtain agreement for each step, as in the second video. First the doctor asks Janice if she willing to commit to the goal. Next, the doctor raises the issue of meeting monthly until her blood pressure is controlled. This puts this issue out there for discussion and supports the patient’s autonomy in decision making.", 
 
 dialogueOne: 
 %Q(<ul class="list-group">
-	<li class="list-group-item">Janice, we talked about your goal. I’d like to talk about a plan for you to reach your goal.</li>
+	<li class="list-group-item">Doc: Janice, we talked about your goal. I’d like to talk about a plan for you to reach your goal.</li>
 	<li class="list-group-item list-group-item-info">Pt: OK.</li>
 	<li class="list-group-item">Doc: First, you need to take your medication consistently in the morning. It is really important for you to remember to do that. Some people put their pills either in the kitchen or the bathroom, wherever you can to remember to take them in the morning. Second, you need to reduce your salt. For a lot of people, this means cutting out fried food. The third thing is to become more physically active.  What I am going to do today is increase your blood pressure medication and I'd like to see you back in a month until hopefully your blood pressure is controlled.</li>
 	<li class="list-group-item list-group-item-info">Pt: Okay.</li>
@@ -108,29 +118,31 @@ dialogueOne:
 
 dialogTwo:
 %Q(<ul class="list-group">
-	<li class="list-group-item">Doc: OK. We’ve talked about how lowering your blood pressure helps keep you healthy. Are you willing to commit to getting your numbers under control?</li>
-	<li class="list-group-item list-group-item-info">Pt: I am. I was just rushing this morning…..</li>
-	<li class="list-group-item">Doc: I understand. It is hard  to remember things when we are in a rush, and I know establishing healthy routines definitely takes time. I’d like to suggest we meet every month until you reach your goal. It usually takes about 2-3 visits. What do you think?</li>
-	<li class="list-group-item list-group-item-info">Pt:  You know I don’t like coming to the doctor so much, but I'll try.</li>
-	<li class="list-group-item">Doc: Excellent, that's great, and I appreciate that Janice.  I am glad that we can work on this together, because  I see your blood pressure has been high for the last couple visits but I definitely think we can make some improvement by working together. I recommend we add another medication to be safe. We can talk about stopping it  later as you start cut back on your salt and start walking every day. Is it okay with you that we add another medication today?</li>
-	<li class="list-group-item list-group-item-info">Pt: If you really think so...</li>
+	<li class="list-group-item">Doc: You understand why it's important to get your bp under control. Are you willing to do what it takes to reach those targets?</li>
+	<li class="list-group-item list-group-item-info">Pt: I am. I was just rushing this morning.</li>
+	<li class="list-group-item">Doc: Yeah, I understand. It's hard for all of us to remember things when we're in a rush, and it's hard for us to change our daily routines. I'd like to suggest we meet every month until we get your blood pressure where it needs to be. I'm thinking this is going to take maybe 2 or 3 more visits. </li>
+	<li class="list-group-item list-group-item-info">Pt: Ok, you know I don't like coming to the doctor as much, but I'll do it. </li>
+	<li class="list-group-item">Doc: Great! I appreciate it. I'm glad we can work on this together. I see your blood pressure has been high now for the last 3 visits, so I think we should add another medication today. We can always drop the medication as your blood pressure comes down below the target and you start to do other things to bring it down, cutting back on you r salt and exercising more. Can we do that? </li>
+	<li class="list-group-item list-group-item-info">Pt: Ok.</li>
 </ul>)
 
 )
 
+# Mod 4
 Mod.create(
 
 aType: "Assist", 
-vidOneSource: "https://www.youtube.com/embed/UvAl_-qU7kI", 
+vidOneSource: "https://www.youtube.com/embed/D3lt3qvJ7XM", 
 vidTwoSource: "https://www.youtube.com/embed/ugOCiZilNgk", 
 explanation: "In the first video, the doctor provides a lot of information and asks the patient at the end if that is OK. In the second video, the doctor explores some reasons why the patient might be having trouble with medication adherence. The same approach can be applied to lifestyle changes.", 
 
 dialogueOne: 
 %Q(<ul class="list-group">
-	<li class="list-group-item">Doc: It sounds like you have a pretty good handle on what will improve your blood pressure. Can we talk about a plan for making that happen?</li>
-	<li class="list-group-item list-group-item-info">Pt: Okay.</li>
-	<li class="list-group-item">Doc: Lets start with taking your taking medication. I know that patients miss medication for lots of reasons beyond forgetting. Some of my patients tell me they are worried about side effects or becoming dependent on the medication. For others it is costs. Do some of these reasons apply to you?</li>
-	<li class="list-group-item list-group-item-info">Pt: Sometimes I just forget. But honestly, I just don't like the though of taking a pill everyday. It isn’t natural. I worry about what it is doing to my body.</li>
+	<li class="list-group-item">Doc: Janice, it sounds like you have a pretty good handle on what it takes to improve your blood pressure. Can we talk about a plan for actually making that happen?</li>
+	<li class="list-group-item list-group-item-info">Pt: Sure.</li>
+	<li class="list-group-item">Doc: So let's start with taking your medication. I know people miss their medication for lots of reasons. For you, you were rushing today. And some of my patients are really worried about side effects, other are worried about costs, others are worried about becoming dependent on the medication. Any of these reasons apply to you?</li>
+	<li class="list-group-item list-group-item-info">Pt: Well, I rushed, but for the most part I just worry about taking a pill every day. I'm concerned about what it's doing to my body.</li>
+	<li class="list-group-item">Doc: I get it. </li>
 </ul>),
 
 dialogTwo:
@@ -141,16 +153,17 @@ dialogTwo:
 
 )
 
+# Mod 5
 Mod.create(
 
 aType: "Arrange", 
-vidOneSource: "https://www.youtube.com/embed/tz90OewWN6g", 
+vidOneSource: "https://www.youtube.com/embed/vORxuVtUWOQ", 
 vidTwoSource: "https://www.youtube.com/embed/-YI3MIIfT1g" , 
 explanation: "In both videos, the doctor provides a summary for the patient at end. This can be very helpful in promoting recall. However, in the second video, the approach is more patient centered. Most importantly, the doctor confirms that the patient is still willing to commit to monthly visit (i.e. arranging follow-up).", 
 
 dialogueOne: 
 %Q(<ul class="list-group">
-	<li class="list-group-item">Doc: So Janice, I think you have a pretty good idea what to do. I want you to take you pills every day. Cut down on your salt and start walking. I want to see you back in a month.</li>
+	<li class="list-group-item">Doc: Ok Janice, I think you have a pretty good idea of what you need to do. Take your pills every day, cut down on your salf, start walking every day, and come back and see me in a month. Ok?</li>
 	<li class="list-group-item list-group-item-info">Pt: OK.</li>
 </ul>),
 
