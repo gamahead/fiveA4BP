@@ -33,8 +33,10 @@ class StaticPagesController < ApplicationController
     end
 
     current_user.update_attribute(:final_feedback,cuffy.to_yaml)
+    current_user.update_attribute(:time_stamp,DateTime.current) # Record time of completion
 
     flash[:success] = 'Answer successfully submitted'
+    redirect_to :contact
   end
 
   def help
@@ -68,7 +70,7 @@ class StaticPagesController < ApplicationController
       @users = User.all
 
       csv_string = CSV.generate do |csv|
-        csv << ["Clinic", "Name", "Email", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]  
+        csv << ["Clinic", "Name", "Email", "TimeStamp", "Q1", "Q2", "Q3", "Q4", "Q5", "F1", "F2", "F3", "F4", "F5"]  
         for user in @users
 
           # Null entries cause problems with converting to string for the csv
@@ -78,7 +80,7 @@ class StaticPagesController < ApplicationController
           ff = user.final_feedback.nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
 
           (answers << ff).flatten!
-          info = [user.clinic, user.name, user.email]
+          info = [user.clinic, user.name, user.email, user.time_stamp.to_s]
           (info << answers).flatten!
           csv << info
         end
