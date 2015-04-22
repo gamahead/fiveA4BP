@@ -19,11 +19,11 @@ class StaticPagesController < ApplicationController
 
   def finalFb
     cuffy = []
-    # cuffy = YAML.load(current_user.final_feedback) #cuffy for current user final feedback yaml
     i = 0 
 
     # I don't like having to iterate through the params like this, but it seems better than
-    # making multiple reads/writes to the db
+    # making multiple reads/writes to the db 
+    # Iterate through the params and store the answers to the final feedback 
 
     params.each do |key,value|
       if key.include? "primary"
@@ -42,7 +42,6 @@ class StaticPagesController < ApplicationController
   end
 
   def about
-    # DocMailer.data_email(current_user).deliver
   end
 
   def contact
