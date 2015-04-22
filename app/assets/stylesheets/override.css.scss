@@ -48,6 +48,11 @@ body {
 
 .jumbotron {
   font-family: 'Avant Garde', sans-serif;
+
+  p {
+    width: 100%;
+    word-wrap: break-word;
+  }
 }
 
 .modal-body {
@@ -59,6 +64,7 @@ body {
   font-family: 'Cabin', sans-serif
 }
 
+// I don't know why this is here, but I'm afraid to fix it
 p {
   width: 175px;
   word-wrap: break-word;

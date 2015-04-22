@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20141121193845) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
-    t.text     "answers"
-    t.text     "final_feedback"
+    t.text     "answers",         default: "--- []\n"
+    t.text     "final_feedback",  default: "--- []\n"
     t.string   "clinic"
   end
 
