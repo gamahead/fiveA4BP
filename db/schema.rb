@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121193845) do
+ActiveRecord::Schema.define(version: 20150422193408) do
 
   create_table "mods", force: true do |t|
     t.string   "aType"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141121193845) do
     t.text     "answers",         default: "--- []\n"
     t.text     "final_feedback",  default: "--- []\n"
     t.string   "clinic"
+    t.datetime "time_stamp"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
