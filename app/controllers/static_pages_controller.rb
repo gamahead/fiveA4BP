@@ -35,7 +35,6 @@ class StaticPagesController < ApplicationController
     current_user.update_attribute(:final_feedback,cuffy.to_yaml)
 
     flash[:success] = 'Answer successfully submitted'
-    redirect_to root_url
   end
 
   def help
