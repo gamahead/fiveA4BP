@@ -80,7 +80,7 @@ class StaticPagesController < ApplicationController
           ff = user.final_feedback.nil? ? ['','','','',''] : YAML::load(user.final_feedback) # final feedback responses
 
           (answers << ff).flatten!
-          info = [user.clinic, user.name, user.email, user.time_stamp.to_s]
+          info = [user.clinic, user.name, user.email, user.time_stamp]
           (info << answers).flatten!
           csv << info
         end
